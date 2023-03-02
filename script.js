@@ -16,8 +16,8 @@ else {
     onClickEvent = () => {
         navigator.bluetooth.requestDevice({ filters: [{ name: 'XC1004 BLE Server' }] }) // we filter the devices, displaying only those with heartrate services
         .then(device => device.gatt.connect()) // after the user select a device, we return the selected one
-        .then(server => server.getPrimaryService('D7B7ACD1-6785-4119-B156-C54B498BD873')) // we get the service
-        .then(service => service.getCharacteristic('3EF1C3A0-9F97-49B2-B3E4-78CFAD8A3763')) // then the characteristics
+        .then(server => server.getPrimaryService('d7b7acd1-6785-4119-b156-c54B498BD873')) // we get the service
+        .then(service => service.getCharacteristic('3ef1c3a0-9f97-49B2-b3E4-78cfad8a3763')) // then the characteristics
         .then(characteristic => characteristic.startNotifications())
         .then(characteristic => {          
             characteristic.addEventListener('characteristicvaluechanged', handleCharacteristicValueChanged) ; // then we subscribe to the characteristic notifications
